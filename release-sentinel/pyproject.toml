@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "release-sentinel"
+version = "0.1.0"
+description = "An OpenMinion-powered, evidence-first release readiness reviewer"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = ["openminion>=0.1,<0.2", "pydantic>=2"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+release-sentinel = "release_sentinel.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["release_sentinel*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
